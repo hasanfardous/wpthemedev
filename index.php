@@ -1,4 +1,13 @@
 <?php
+
+wp_nav_menu(
+    array(
+        'theme_location' => 'main-menu',
+        'menu_id'       => 'hasan',
+        'menu_class'       => 'hasanfardous'
+    )
+);
+
 $args = array(
     'post_type' => 'post',
     'order' => 'ASC',
@@ -16,4 +25,10 @@ while ($query->have_posts()) {
     the_post_thumbnail('thumbnail');
     echo '<hr>';
 }
+
+wp_nav_menu(
+    array(
+        'theme_location' => 'footer-menu'
+    )
+);
 ?>
