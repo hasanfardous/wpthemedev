@@ -1,0 +1,20 @@
+.menu-header-menu-container {
+    background: tomato;
+    text-align: right;
+}
+
+.menu-header-menu-container li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.menu-header-menu-container li {
+    list-style: none;
+    display: inline-block;
+}
+
+.menu-header-menu-container li ul.sub-menu {
+    display: none;
+}
