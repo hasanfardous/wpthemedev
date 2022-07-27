@@ -15,13 +15,11 @@
             <div class="col-sm-6">
                 <div class="post-area">
                     <?php
-                    $counter = 0;
                     while ($query->have_posts()) {
                         $query->the_post();
-                        $counter++;
-                        if ( $counter % 2 == 0 ) {
+                        if ( $query->current_post % 2 == 0 ) {
                         ?>
-                        <div class="row single-post">
+                        <div id="<?php echo $query->current_post?>" class="row single-post">
                             <div class="post-thumbnail col-sm-6">
                                 <?php
                                     the_title();
@@ -36,7 +34,7 @@
                         <?php
                         } else {
                         ?>
-                        <div class="row single-post">
+                        <div id="<?php echo $query->current_post?>" class="row single-post">
                             <div class="post-thumbnail col-sm-6">
                                 <?php the_post_thumbnail('thumbnail');?>
                             </div>
