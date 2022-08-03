@@ -18,3 +18,14 @@
 .menu-header-menu-container li ul.sub-menu {
     display: none;
 }
+
+/* Post styles */
+.single-post {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-bottom: none;
+}
+
+.single-post:last-child {
+    border-bottom: 1px solid #ddd;
+}

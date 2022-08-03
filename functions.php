@@ -52,6 +52,33 @@ function our_widgets_func() {
 
 add_action('widgets_init', 'our_widgets_func');
 
+
+// Registering metabox
+function wpfirsttheme_post_meta_box( $meta_boxes ) {
+    $meta_prefix = '_wpthemedev_';
+    $meta_boxes[] = array(
+        'id'            => 'wpthemedev_post_meta',
+        'title'         => 'Post Extra Options',
+        'post_type'     => array('post'),
+        'fields'        => array(
+            array(
+                'id'    => $meta_prefix . 'post_reading_time',
+                'type'    => 'text',
+                'name'    => 'Post Read Time',
+            ),
+            array(
+                'id'    => $meta_prefix . 'post_extra_field',
+                'type'    => 'text',
+                'name'    => 'Post Extra Field',
+            ),
+        ),
+
+    );
+
+    return $meta_boxes;
+}
+add_filter('rwmb_meta_boxes', 'wpfirsttheme_post_meta_box');
+
 // Disables the block editor from managing widgets in the Gutenberg plugin.
 add_filter( 'gutenberg_use_widgets_block_editor', '__return_false' );
 // Disables the block editor from managing widgets.
