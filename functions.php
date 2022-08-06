@@ -71,6 +71,14 @@ function wpfirsttheme_post_meta_box( $meta_boxes ) {
                 'type'    => 'text',
                 'name'    => 'Post Extra Field',
             ),
+            array(
+                'id'    => $meta_prefix . 'post_feature_img',
+                'type'    => 'switch',
+                'std'    => 'Show',
+                'name'    => 'Show Feature Image?',
+                'on_label'    => 'Show',
+                'off_label'    => 'Hide',
+            ),
         ),
 
     );

@@ -17,20 +17,31 @@
                     <?php
                     while ($query->have_posts()) {
                         $query->the_post();
+                        $post_reading_time = rwmb_meta( '_wpthemedev_post_reading_time' );
+                        $post_extra_field = rwmb_meta( '_wpthemedev_post_extra_field' );
+                        $post_feature_img = rwmb_meta( '_wpthemedev_post_feature_img' );
                         if ( $query->current_post % 2 == 0 ) {
                         ?>
                         <div id="<?php echo $query->current_post?>" class="d-flex justify-content-between single-post">
                             <div class="post-thumbnail">
                                 <h2><?php the_title()?></h2>
                                 <p>
-                                    <?php echo rwmb_meta( '_wpthemedev_post_reading_time' ) ?> | 
-                                    <?php echo rwmb_meta( '_wpthemedev_post_extra_field' ) ?>
+                                    <?php
+                                    echo $post_feature_img;
+                                        if ( $post_reading_time || $post_extra_field ) {
+                                            echo $post_reading_time . ' | ' . $post_extra_field;
+                                        }
+                                    ?>
                                 </p>
                                 <?php the_content()?>
                             </div>
 
                             <div class="post-content">
-                                <?php the_post_thumbnail('thumbnail');?>
+                                <?php 
+                                    if ( $post_feature_img ) {
+                                        the_post_thumbnail('thumbnail');
+                                    }
+                                ?>
                             </div>
                         </div>
                         <?php
@@ -38,14 +49,21 @@
                         ?>
                         <div id="<?php echo $query->current_post?>" class="d-flex justify-content-between single-post">
                             <div class="post-thumbnail">
-                                <?php the_post_thumbnail('thumbnail');?>
+                                <?php 
+                                    if ( $post_feature_img ) {
+                                        the_post_thumbnail('thumbnail');
+                                    }
+                                ?>
                             </div>
 
                             <div class="post-content">
                                 <h2><?php the_title()?></h2>
                                 <p>
-                                    <?php echo rwmb_meta( '_wpthemedev_post_reading_time' ) ?> | 
-                                    <?php echo rwmb_meta( '_wpthemedev_post_extra_field' ) ?>
+                                    <?php
+                                        if ( $post_reading_time || $post_extra_field ) {
+                                            echo $post_reading_time . ' | ' . $post_extra_field;
+                                        }
+                                    ?>
                                 </p>
                                 <?php the_content()?>
                             </div>
