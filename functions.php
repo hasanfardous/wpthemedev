@@ -91,4 +91,28 @@ add_filter('rwmb_meta_boxes', 'wpfirsttheme_post_meta_box');
 add_filter( 'gutenberg_use_widgets_block_editor', '__return_false' );
 // Disables the block editor from managing widgets.
 add_filter( 'use_widgets_block_editor', '__return_false' );
+
+Kirki::add_config( 'wpthemedev_customizer_opt', array(
+    'priority' => 0,
+    'title'    => 'Theme settings',
+    'description' => 'Our theme settings'
+) );
+
+Kirki::add_panel( 'wpthemedev_first_panel', array(
+    'title' => 'First Panel',
+    'description' => 'First Panel Description',
+) );
+
+Kirki::add_section( 'wpthemedev_first_section', array(
+    'title' => 'First Section',
+    'panel' => 'wpthemedev_first_panel',
+) );
+
+Kirki::add_field( 'wpthemedev_customizer_opt', array(
+    'type' => 'text',
+    'settings' => 'wpthemedev_site_title',
+    'label' => 'Site Title',
+    'section' => 'wpthemedev_first_section',
+    'default' => 'WP Theme Dev',
+) );
 ?>
