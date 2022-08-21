@@ -13,12 +13,30 @@
   wp_body_open();
 
   $site_title = get_theme_mod( 'wpthemedev_site_title' );
-  echo $site_title;
+  $site_title_color = get_theme_mod( 'wpthemedev_site_color' );
+  $site_header_show = get_theme_mod( 'wpthemedev_site_header_show' );
+  $site_title_size = get_theme_mod( 'wpthemedev_site_title_size' );
 
-  wp_nav_menu(
-      array(
-          'theme_location' => 'main-menu',
-          'menu_id'       => 'hasan',
-          'menu_class'       => 'hasanfardous'
-      )
-  );
+  if ( $site_header_show == 1 ) {
+  ?>
+  <div class="header-container-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="header-container-area d-flex justify-content-between">
+          <h3 style="color: <?php echo $site_title_color?>; font-size: <?php echo $site_title_size?>px"><?php echo $site_title;?></h3>
+
+          <?php
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'main-menu',
+                    'menu_id'       => 'hasan',
+                    'menu_class'       => 'hasanfardous'
+                )
+            );
+          ?>
+        </div>
+      </div>
+    </div>
+  </div>
+<?php
+}

@@ -1,5 +1,14 @@
-.menu-header-menu-container {
+.header-container-wrapper {
     background: tomato;
+}
+
+.header-container-area h3 {
+    margin: 0;
+    line-height: 55px;
+    color: #fff;
+}
+
+.menu-header-menu-container {
     text-align: right;
 }
 

@@ -115,4 +115,37 @@ Kirki::add_field( 'wpthemedev_customizer_opt', array(
     'section' => 'wpthemedev_first_section',
     'default' => 'WP Theme Dev',
 ) );
+
+Kirki::add_field( 'wpthemedev_customizer_opt', array(
+    'type' => 'color',
+    'settings' => 'wpthemedev_site_color',
+    'label' => 'Site Title Color',
+    'section' => 'wpthemedev_first_section',
+    // 'default' => '#000000',
+) );
+Kirki::add_field( 'wpthemedev_customizer_opt', array(
+    'type' => 'switch',
+    'settings' => 'wpthemedev_site_header_show',
+    'label' => 'Site Header Show?',
+    'section' => 'wpthemedev_first_section',
+    'default' => '1',
+) );
+Kirki::add_field( 'wpthemedev_customizer_opt', array(
+    'type' => 'slider',
+    'settings' => 'wpthemedev_site_title_size',
+    'label' => 'Site Title Size',
+    'section' => 'wpthemedev_first_section',
+    // 'default' => '1',
+    'choices' => [
+        'min'   => 1,
+        'max'   => 100,
+        'step'   => 1,
+    ]
+) );
+Kirki::add_field( 'wpthemedev_customizer_opt', array(
+    'type' => 'background',
+    'settings' => 'wpthemedev_footer_img',
+    'label' => 'Footer Image',
+    'section' => 'wpthemedev_first_section',
+) );
 ?>
